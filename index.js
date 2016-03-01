@@ -1,6 +1,9 @@
 'use strict';
 
-var request = require("request");
-var ttAPI = {};
+var legacy = require("./legacy.js");
 
-module.exports = ttAPI;
+
+
+module.exports = {
+    legacy: legacy
+};

@@ -1,4 +1,5 @@
 {
-    "predef": ["require","module"],
-    "-W097": true
+    "predef": ["require","module","console"],
+    "-W097": true,
+    "esversion": 6
 }
