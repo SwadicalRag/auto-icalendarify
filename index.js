@@ -35,7 +35,7 @@ ttAPI.timetableSearch = function(query,callback) {
         }
         else {
             if(topics[0]) {
-                ttAPI.legacy.getTimetable("2016",topics[0].AVKEYNUMBER,callback);
+                ttAPI.legacy.getTimetable(query.year,topics[0].AVKEYNUMBER,callback);
             }
             else {
                 callback("No topics found");
