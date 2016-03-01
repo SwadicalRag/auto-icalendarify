@@ -14,4 +14,10 @@ var ttAPI = require("../index.js");
 // },console.log);
 // ttAPI.legacy.getTimetable("2016","259976",console.log);
 
+// ttAPI.timetableSearch({
+//     topicNumber: "1102",
+//     subject: "BIOL",
+//     year: 2016
+// },console.log);
+
 // TODO: make a fancy test suite

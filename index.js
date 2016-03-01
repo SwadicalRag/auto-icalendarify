@@ -28,6 +28,22 @@ ttAPI.legacy.getAvailableYears(function(err,yearData) {
         ttAPI.years[ttAPI.years.length] = yearData[i].DESCRIPTION;
 });
 
+ttAPI.timetableSearch = function(query,callback) {
+    ttAPI.legacy.searchTopics(query,function(err,topics) {
+        if(err) {
+            callback(err);
+        }
+        else {
+            if(topics[0]) {
+                ttAPI.legacy.getTimetable("2016",topics[0].AVKEYNUMBER,callback);
+            }
+            else {
+                callback("No topics found");
+            }
+        }
+    });
+};
+
 // TODO: finish the high level API
 
 module.exports = ttAPI;
