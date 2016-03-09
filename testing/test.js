@@ -20,6 +20,8 @@ var flinders = require("../index.js");
 //     year: 2016
 // },console.log);
 
+flinders.timetable.getTopicDetails("BIOL","1102","2016",console.log);
+
 // flinders.lectures.getLecture("BIOL1102","2016",console.log);
 
 // TODO: make a fancy test suite

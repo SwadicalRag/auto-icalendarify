@@ -5,6 +5,7 @@ let request = require("request");
 let endpoint1 = "http://www.flinders.edu.au/webapps/stusys/index.cfm/timetable/";
 let endpoint2 = "http://www.flinders.edu.au/webapps/stusys/index.cfm/timetabletopic/";
 let endpoint3 = "http://www.flinders.edu.au/webapps/stusys/index.cfm/common/";
+let endpoint4 = "http://www.flinders.edu.au/webapps/stusys/index.cfm/topic/";
 
 function getLocations(callback) {
     request({
@@ -180,7 +181,7 @@ function getTopicSubjects(year,callback) {
 function getTopicDetails(subject,topicNumber,year,callback) {
     request({
         method: "GET",
-        uri: endpoint3 + "getTopicSubjects",
+        uri: endpoint4 + "getTopicDetails",
         qs: {
             format: "json",
             avkeynumber: "",
@@ -198,7 +199,7 @@ function getTopicDetails(subject,topicNumber,year,callback) {
                 try {
                     let data = JSON.parse(body);
                     if(data.SUCCESS == 1) {
-                        callback(null,data.OPTIONLIST.OPTIONS);
+                        callback(null,data.TOPIC[0]);
                     }
                     else {
                         callback(data.EXCEPTION.Message,data);
