@@ -1,21 +1,21 @@
 {
-  "name": "flinders-timetable-api",
+  "name": "flinders-api",
   "version": "1.0.0",
-  "description": "An API to get timetable data for Flinders University subjects",
+  "description": "An API to get various data related to Flinders University",
   "main": "index.js",
   "scripts": {
     "test": "node testing/test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SwadicalRag/flinders-timetable-api.git"
+    "url": "git+https://github.com/SwadicalRag/flinders-api.git"
   },
   "author": "SwadicalRag",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SwadicalRag/flinders-timetable-api/issues"
+    "url": "https://github.com/SwadicalRag/flinders-api/issues"
   },
-  "homepage": "https://github.com/SwadicalRag/flinders-timetable-api#readme",
+  "homepage": "https://github.com/SwadicalRag/flinders-api#readme",
   "dependencies": {
     "icalendar": "^0.7.1",
     "moment": "^2.11.2",
