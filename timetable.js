@@ -177,6 +177,44 @@ function getTopicSubjects(year,callback) {
     });
 }
 
+function getTopicDetails(subject,topicNumber,year,callback) {
+    request({
+        method: "GET",
+        uri: endpoint3 + "getTopicSubjects",
+        qs: {
+            format: "json",
+            avkeynumber: "",
+            tdtopicnumber: topicNumber,
+            tdtopicsubject: subject,
+            tdyear: year,
+            test: ""
+        }
+    },function(err,res,body) {
+        if(err) {
+            callback(err,[]);
+        }
+        else {
+            if(res.statusCode == 200) {
+                try {
+                    let data = JSON.parse(body);
+                    if(data.SUCCESS == 1) {
+                        callback(null,data.OPTIONLIST.OPTIONS);
+                    }
+                    else {
+                        callback(data.EXCEPTION.Message,data);
+                    }
+                }
+                catch(errMsg) {
+                    callback(errMsg);
+                }
+            }
+            else {
+                callback("HTTP status code is " + res.statusCode + " (not 200!)",[]);
+            }
+        }
+    });
+}
+
 function searchTopics(query,callback) {
     if(!query.year) {
         return callback("'year' parameter in query object missing!");
@@ -288,5 +326,6 @@ module.exports = {
     getTopicSubjects: getTopicSubjects,
     searchTopics: searchTopics,
     getTimetable: getTimetable,
-    searchTimetable: searchTimetable
+    searchTimetable: searchTimetable,
+    getTopicDetails: getTopicDetails
 };
