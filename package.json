@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/SwadicalRag/flinders-timetable-api#readme",
   "dependencies": {
-    "request-promise": "^2.0.1"
+    "icalendar": "^0.7.1",
+    "moment": "^2.11.2",
+    "request-promise": "^2.0.1",
+    "xml2js": "^0.4.16"
   }
 }
