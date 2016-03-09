@@ -1,6 +1,6 @@
 var icalendar = require("icalendar");
 var moment = require("moment");
-var ttAPI = require("../index.js");
+var flinders = require("../index.js");
 var fs = require("fs");
 
 var subjects = JSON.parse(fs.readFileSync("timetable.json"));
@@ -22,7 +22,7 @@ for(var i=0;i < subjects.length;i++) {
     var subjectName = subject[0];
     var topicNumber = subject[1];
 
-    ttAPI.timetableSearch({
+    flinders.timetable.searchTimetable({
         subject: subjectName,
         topicNumber: topicNumber,
         year: 2016

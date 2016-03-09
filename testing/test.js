@@ -1,20 +1,20 @@
 'use strict';
 
-var ttAPI = require("../index.js");
+var flinders = require("../index.js");
 
-// ttAPI.legacy.getLocations(console.log);
-// ttAPI.legacy.getSemesters(console.log);
-// ttAPI.legacy.getAttendanceModes(console.log);
-// ttAPI.legacy.getAvailableYears(console.log);
-// ttAPI.legacy.getTopicSubjects(2016,console.log);
-// ttAPI.legacy.searchTopics({
+// flinders.timetable.getLocations(console.log);
+// flinders.timetable.getSemesters(console.log);
+// flinders.timetable.getAttendanceModes(console.log);
+// flinders.timetable.getAvailableYears(console.log);
+// flinders.timetable.getTopicSubjects(2016,console.log);
+// flinders.timetable.searchTopics({
 //     topicNumber: "1102",
 //     subject: "BIOL",
 //     year: 2016
 // },console.log);
-// ttAPI.legacy.getTimetable("2016","259976",console.log);
+// flinders.timetable.getTimetable("2016","259976",console.log);
 
-// ttAPI.timetableSearch({
+// flinders.timetable.timetableSearch({
 //     topicNumber: "1102",
 //     subject: "BIOL",
 //     year: 2016

@@ -262,6 +262,24 @@ function getTimetable(year,topicid,callback) {
     });
 }
 
+
+
+function searchTimetable(query,callback) {
+    searchTopics(query,function(err,topics) {
+        if(err) {
+            callback(err);
+        }
+        else {
+            if(topics[0]) {
+                getTimetable(query.year,topics[0].AVKEYNUMBER,callback);
+            }
+            else {
+                callback("No topics found");
+            }
+        }
+    });
+}
+
 module.exports = {
     getLocations: getLocations,
     getSemesters: getSemesters,
@@ -269,5 +287,6 @@ module.exports = {
     getAvailableYears: getAvailableYears,
     getTopicSubjects: getTopicSubjects,
     searchTopics: searchTopics,
-    getTimetable: getTimetable
+    getTimetable: getTimetable,
+    searchTimetable: searchTimetable
 };
