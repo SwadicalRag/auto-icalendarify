@@ -287,7 +287,7 @@ function getBusLocation() {
                     timeLeft: 60 - currentTime.seconds(),
                     totalTime: 60,
                     cycles: runs + 1,
-                    nextStop: busStopOrder[i2 + 1]
+                    nextStop: busStopOrder[i2 + 1] || busStopOrder[0]
                 };
             }
             else if(lastTime) {
@@ -301,13 +301,15 @@ function getBusLocation() {
                         timeLeft: timeLeft,
                         totalTime: totalTime,
                         cycles: runs + 1,
-                        nextStop: busStopOrder[i2 + 1]
+                        nextStop: busStopOrder[i2 + 1] || busStopOrder[0]
                     };
                 }
             }
             lastTime = actualTime;
         }
     }
+
+    return false; // bus service is inactive
 }
 
 module.exports = {
