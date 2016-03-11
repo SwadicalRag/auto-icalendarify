@@ -250,6 +250,9 @@ function searchTopics(query,callback) {
                     if(data.SUCCESS == 1) {
                         callback(null,data.AVAILABILITYLIST.AVAILABILITIES);
                     }
+                    else if(data.SUCCESS == 2) {
+                        callback(null,[]);
+                    }
                     else {
                         callback(data.EXCEPTION.Message,data);
                     }
