@@ -51,10 +51,10 @@ function getMediaRoomStatus(callback) {
 
                             if(moment().isBetween(ts_from,ts_to)) {
                                 avail = true;
-                                console.log("Yes");
+                                // console.log("Yes");
                             }
                             else {
-                                console.log("No");
+                                // console.log("No");
                             }
                         }
                     });
