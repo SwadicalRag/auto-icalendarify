@@ -24,6 +24,8 @@ var flinders = require("../index.js");
 
 // flinders.lectures.getLecture("BIOL1102","2016",console.log);
 
-console.log(flinders.bus.getBusLocation());
+flinders.hub.getMediaRoomStatus(console.log);
+
+// console.log(flinders.bus.getBusLocation());
 
 // TODO: make a fancy test suite
