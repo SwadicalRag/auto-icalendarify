@@ -1,6 +1,6 @@
 {
   "name": "flinders-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "An API to get various data related to Flinders University",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "cheerio": "^0.20.0",
     "icalendar": "^0.7.1",
     "moment": "^2.11.2",
+    "moment-timezone": "^0.5.4",
     "request-promise": "^2.0.1",
     "xml2js": "^0.4.16"
   }

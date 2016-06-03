@@ -1,7 +1,7 @@
 'use strict';
 
 let fs = require("fs");
-let moment = require("moment");
+let moment = require("moment-timezone");
 
 let busData = [
     {
@@ -278,7 +278,7 @@ function getBusLocation() {
         for(let i2=0;i2 < busStopOrder.length;i2++) {
             let busStop = busStopOrder[i2];
             let time = busData[runs]["Departs " + busStop];
-            let actualTime = moment(time,"hh:mm:ss AA");
+            let actualTime = moment.tz(time,"hh:mm:ss AA","Australia/Adelaide");
 
             if(currentTime.isSame(actualTime,"minute")) {
                 return {

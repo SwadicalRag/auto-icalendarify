@@ -1,6 +1,6 @@
 'use strict';
 
-let moment = require("moment");
+let moment = require("moment-timezone");
 let request = require("request");
 let cheerio = require("cheerio");
 
@@ -32,16 +32,18 @@ function getMediaRoomStatus(callback) {
                     let avail = false;
                     let diff,nextAvailFrom,nextAvailTo;
 
+                    let now = moment();
+
                     $(".lc_rm_a").each(function() {
                         let matches = $(this).attr("onclick").match(/return showBookingForm\(this\.id,'(.*?)','(.*?) - (.*?),(.*?)', '(.*)'\);/);
 
                         if(matches && matches[2] && matches[3]) {
-                            let ts_from = moment(matches[2],"hh:mmaa");
-                            let ts_to = moment(matches[3],"hh:mmaa");
+                            let ts_from = moment.tz(matches[2],"hh:mmaa","Australia/Adelaide");
+                            let ts_to = moment.tz(matches[3],"hh:mmaa","Australia/Adelaide");
 
-                            if(ts_from.isBefore(moment())) {return;}
+                            if(ts_from.isBefore(now)) {return;}
 
-                            let diff_from = moment().diff(ts_from,"seconds");
+                            let diff_from = now.diff(ts_from,"seconds");
 
                             if((diff_from > diff) || !diff) {
                                 diff = diff_from;
@@ -49,7 +51,7 @@ function getMediaRoomStatus(callback) {
                                 nextAvailTo = ts_to;
                             }
 
-                            if(moment().isBetween(ts_from,ts_to)) {
+                            if(now.isBetween(ts_from,ts_to)) {
                                 avail = true;
                                 // console.log("Yes");
                             }
